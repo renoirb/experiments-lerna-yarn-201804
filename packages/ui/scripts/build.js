@@ -38,7 +38,7 @@ run(async () => {
     await compile({
       input: 'src/ui.cjs.js',
       output: {
-        name: 'Vuikit',
+        name: 'ui',
         format: 'umd',
       },
       env: 'development',
@@ -48,7 +48,7 @@ run(async () => {
     await compile({
       input: 'src/ui.cjs.js',
       output: {
-        name: 'Vuikit',
+        name: 'ui',
         format: 'umd',
       },
       env: 'production',

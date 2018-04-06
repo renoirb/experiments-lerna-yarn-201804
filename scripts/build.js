@@ -19,11 +19,9 @@ run(async () => {
 
   // package
   await Promise.all([
-    copy('packages/ui/dist/ui.js', 'dist/pkg'),
-    copy('packages/ui/dist/ui.min.js', 'dist/pkg'),
-    copy('packages/ui/dist/ui.min.js.map', 'dist/pkg'),
+    copy('packages/ui/lib/**.js', 'dist/ui'),
   ])
 
-  await zip('dist/pkg', `dist/ui.zip`)
+  await zip('dist/ui', `dist/ui.zip`)
   await remove('dist/pkg')
 })

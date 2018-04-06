@@ -18,7 +18,6 @@ run(async () => {
   await remove('lib')
 
   const components = await globby('src/components/*')
-  console.log('components', components)
 
   await task('Compile Library', async () => {
     return Promise.all(components.map(async input => {
@@ -27,18 +26,17 @@ run(async () => {
     }))
   })
 
+  /*
   await replaceInFile({
-    files: 'lib/*/*.js',
+    files: 'lib/ * / * .js',
     from: /ui\/src/g,
     to: '..',
   })
+  */
 
   await replaceInFile({
     files: 'lib/*.js',
-    from: [
-      /ui\/src\/ui/g,
-      /ui\/src/g,
-    ],
+    from: /ui\/src/g,
     to: '.',
   })
 })

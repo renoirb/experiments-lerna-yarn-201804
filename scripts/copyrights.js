@@ -2,11 +2,11 @@ import {
   run,
   banner,
 } from '@miljan/build'
-const year = (new Date).getFullYear()
+const year = (new Date()).getFullYear()
 
 const Copyright = `/**
- * Library ${pkg.version}
- * (c) ${year} ${pkg.author.name}
+ * Experiment ${pkg.version}
+ * (c) ${year} ${pkg.author}
  * @license ${pkg.license}
  **/
 `

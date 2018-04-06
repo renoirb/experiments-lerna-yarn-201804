@@ -1,10 +1,16 @@
 import pkg from '../package.json'
-import { run, banner } from '@miljan/build'
-const year = (new Date).getFullYear()
+import {
+  run,
+  banner,
+} from '@miljan/build/lib/index.js'
+//                   ^-- remove /lib/index.js soon(ish)
+//                       once it won't break when building without it.
+
+const year = (new Date()).getFullYear()
 
 const Copyright = `/**
- * Library ${pkg.version}
- * (c) ${year} ${pkg.author.name}
+ * ${pkg.name} ${pkg.version}
+ * (c) ${year} ${pkg.author}
  * @license ${pkg.license}
  **/
 `

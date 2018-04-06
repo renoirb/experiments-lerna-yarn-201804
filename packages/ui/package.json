@@ -2,13 +2,13 @@
   "name": "ui",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/ui.cjs.js",
-  "module": "dist/ui.esm.js",
-  "author": "Renoir Boulanger <renoir.boulanger@cgi.com>",
+  "main": "lib/UneLibrairie.umd.min.js",
+  "module": "lib/UneLibrairie.common.min.js",
+  "author": "Renoir Boulanger <hello@renoirboulanger.com>",
   "scripts": {
     "build:dist": "node -r esm scripts/build.js",
     "build:lib": "node -r esm scripts/build-lib.js",
-    "build": "npm run build:lib && npm run build:dist",
+    "build": "vue-cli-service build --dest lib --target lib --name UneLibrairie src/ui.esm.js",
     "postbuild": "node -r esm scripts/copyright.js",
     "test": "vue-cli-service test",
     "test:watch": "vue-cli-service test --config jest.config.js -i --watch",
@@ -20,8 +20,8 @@
     "vue": "^2.5.13"
   },
   "devDependencies": {
-    "replace-in-file": "^3.4.0",
     "@miljan/build": "^0.4.2",
+    "esm": "^3.0.16",
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-plugin-unit-jest": "^3.0.0-beta.6",
@@ -33,9 +33,9 @@
     "css-loader": "^0.28.11",
     "eslint-config-experiment": "*",
     "eslint-loader": "^2.0.0",
-    "esm": "^3.0.16",
     "jest-css-modules": "^1.1.0",
     "jest-vue-preprocessor": "^1.4.0",
+    "replace-in-file": "^3.4.0",
     "rollup": "^0.57.0",
     "rollup-analyzer": "^1.1.0",
     "rollup-plugin-alias": "^1.4.0",
@@ -46,6 +46,7 @@
     "rollup-plugin-replace": "^2.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vue-jest": "^2.3.0",
     "vue-loader": "^14.1.1",
     "vue-style-loader": "^4.0.2",
     "vue-template-compiler": "^2.5.16",
@@ -72,34 +73,5 @@
   "@std/esm": {
     "mode": "js",
     "cjs": true
-  },
-  "eslintConfig": {
-    "globals": {
-      "ENV": true
-    },
-    "env": {
-      "jest": true
-    }
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "modulePaths": [
-      "<rootDir>/../../node_modules",
-      "<rootDir>/../../packages"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/dist"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "vue-jest"
-    },
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ]
   }
 }

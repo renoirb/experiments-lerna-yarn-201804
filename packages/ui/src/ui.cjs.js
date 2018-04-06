@@ -1,20 +1,16 @@
-import {
-  each,
-} from './util/lang'
 import * as components from './components'
 
 const VuePlugin = {
   components,
-
   install (Vue) {
-    each(components, (def, name) => {
-      Vue.component(name, def)
-    })
+    for (const [
+      // eslint-disable-next-line
+      className,
+      component,
+    ] of Object.entries(components)) {
+      Vue.component(component.name, component)
+    }
   },
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VuePlugin)
 }
 
 export default VuePlugin
