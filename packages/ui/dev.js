@@ -3,5 +3,3 @@ import Vue from 'vue'
 import VuePlugin from 'library/src/ui.esm'
 
 Vue.use(VuePlugin)
-
-

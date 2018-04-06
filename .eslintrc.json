@@ -4,10 +4,9 @@
     "sourceType": "module"
   },
   "env": {
-    "browser": true,
     "node": true
   },
   "extends": [
-    "preferences-eslint"
+    "./packages/eslint-config-experiment/index.js"
   ]
 }

@@ -5,15 +5,23 @@ import buble from 'rollup-plugin-buble'
 import cleanup from 'rollup-plugin-cleanup'
 import replaceInFile from 'replace-in-file'
 
-import { run, task, remove, write } from '@miljan/build'
+import {
+  run,
+  task,
+  remove,
+  write,
+} from '@miljan/build/lib/index.js'
+//                   ^-- remove /lib/index.js soon(ish)
+//                       once it won't break when building without it.
 
 run(async () => {
   await remove('lib')
 
-  await task('Compile Library', async () => {
-    let resources = await globby('src/components/*')
+  const components = await globby('src/components/*')
+  console.log('components', components)
 
-    return Promise.all(resources.map(async input => {
+  await task('Compile Library', async () => {
+    return Promise.all(components.map(async input => {
       const basename = path.dirname(input).split('/').pop()
       return compile(input, `lib/${basename}.js`)
     }))
@@ -22,16 +30,16 @@ run(async () => {
   await replaceInFile({
     files: 'lib/*/*.js',
     from: /ui\/src/g,
-    to: '..'
+    to: '..',
   })
 
   await replaceInFile({
     files: 'lib/*.js',
     from: [
       /ui\/src\/ui/g,
-      /ui\/src/g
+      /ui\/src/g,
     ],
-    to: '.'
+    to: '.',
   })
 })
 
@@ -39,7 +47,7 @@ async function compile (input, dest, opts = {}) {
   const config = {
     input,
     output: {
-      format: 'es'
+      format: 'es',
     },
     external: opts.external || (id => {
       const isRelative = /\.\//
@@ -55,10 +63,14 @@ async function compile (input, dest, opts = {}) {
     }),
     plugins: [
       buble(),
-      cleanup()
-    ]
+      cleanup(),
+    ],
   }
 
-  const { code } = await rollup(config)
-  await write(dest, code, { log: true })
+  const {
+    code,
+  } = await rollup(config)
+  await write(dest, code, {
+    log: true,
+  })
 }

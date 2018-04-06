@@ -1,4 +1,6 @@
-import { each } from 'vuikit/src/util/lang'
+import {
+  each,
+} from './util/lang'
 import * as components from './components'
 
 const VuePlugin = {
@@ -8,8 +10,7 @@ const VuePlugin = {
     each(components, (def, name) => {
       Vue.component(name, def)
     })
-  }
+  },
 }
 
 export default VuePlugin
-

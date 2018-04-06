@@ -1,8 +1,10 @@
+/* eslint-env browser */
+/* eslint-disable no-mixed-operators, no-return-assign */
+
 /**
- * Thanks https://github.com/vuikit/vuikit/blob/master/packages/vuikit/src/util/lang.js 
+ * Thanks https://github.com/vuikit/vuikit/blob/master/packages/vuikit/src/util/lang.js
  */
 
-/* eslint-disable no-mixed-operators, no-return-assign */
 export function bind (fn, context) {
   return function (a) {
     const l = arguments.length
@@ -10,7 +12,9 @@ export function bind (fn, context) {
   }
 }
 
-const {hasOwnProperty} = Object.prototype
+const {
+  hasOwnProperty,
+} = Object.prototype
 
 export function hasOwn (obj, key) {
   return hasOwnProperty.call(obj, key)
@@ -59,7 +63,9 @@ export function includes (obj, search) {
   return obj && (isString(obj) ? includesStr : includesArray).call(obj, search)
 }
 
-export const {isArray} = Array
+export const {
+  isArray,
+} = Array
 
 export function isFunction (obj) {
   return typeof obj === 'function'
@@ -221,6 +227,7 @@ export function intersectRect (r1, r2) {
 }
 
 export function pointInRect (point, rect) {
-  return intersectRect({top: point.y, bottom: point.y, left: point.x, right: point.x}, rect)
+  return intersectRect({
+    top: point.y, bottom: point.y, left: point.x, right: point.x,
+  }, rect)
 }
-

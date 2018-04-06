@@ -1,5 +1,7 @@
-import { each } from 'ui/src/util/lang'
-import * as components from 'ui/src/components'
+import {
+  each,
+} from './util/lang'
+import * as components from './components'
 
 const VuePlugin = {
   components,
@@ -8,7 +10,7 @@ const VuePlugin = {
     each(components, (def, name) => {
       Vue.component(name, def)
     })
-  }
+  },
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -16,4 +18,3 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default VuePlugin
-

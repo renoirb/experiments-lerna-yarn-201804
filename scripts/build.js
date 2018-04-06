@@ -5,7 +5,9 @@ import {
   run,
   copy,
   zip,
-} from '@miljan/build'
+} from '@miljan/build/lib/index.js'
+//                   ^-- remove /lib/index.js soon(ish)
+//                       once it won't break when building without it.
 
 run(async () => {
   await remove('dist')

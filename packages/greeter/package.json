@@ -1,0 +1,13 @@
+{
+  "name": "greeter",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "eslint-config-experiment": "*"
+  }
+}

@@ -9,15 +9,17 @@
   "author": "Renoir Boulanger <hello@renoirboulanger.com>",
   "license": "MIT",
   "scripts": {
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "bootstrap": "lerna bootstrap",
     "build": "node -r esm scripts/build.js"
   },
-  "dependencies": {
-    "esm": "^3.0.12"
+  "engines": {
+    "node": ">=8"
   },
   "devDependencies": {
     "@miljan/build": "^0.4.2",
-    "@storybook/cli": "^3.3.15",
+    "esm": "^3.0.16",
     "lerna": "^2.9.1"
   },
   "@std/esm": {

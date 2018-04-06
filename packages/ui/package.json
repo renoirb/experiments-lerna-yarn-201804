@@ -2,7 +2,6 @@
   "name": "ui",
   "version": "0.1.0",
   "license": "MIT",
-  "private": true,
   "main": "dist/ui.cjs.js",
   "module": "dist/ui.esm.js",
   "author": "Renoir Boulanger <renoir.boulanger@cgi.com>",
@@ -21,8 +20,8 @@
     "vue": "^2.5.13"
   },
   "devDependencies": {
+    "replace-in-file": "^3.4.0",
     "@miljan/build": "^0.4.2",
-    "esm": "^3.0.16",
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-plugin-unit-jest": "^3.0.0-beta.6",
@@ -32,15 +31,11 @@
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
     "css-loader": "^0.28.11",
+    "eslint-config-experiment": "*",
     "eslint-loader": "^2.0.0",
+    "esm": "^3.0.16",
     "jest-css-modules": "^1.1.0",
     "jest-vue-preprocessor": "^1.4.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vue-loader": "^14.1.1",
-    "vue-style-loader": "^4.0.2",
-    "vue-template-compiler": "^2.5.16",
-    "vuetify": "^1.0.11",
     "rollup": "^0.57.0",
     "rollup-analyzer": "^1.1.0",
     "rollup-plugin-alias": "^1.4.0",
@@ -48,7 +43,13 @@
     "rollup-plugin-cleanup": "^2.0.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.2.0",
-    "rollup-plugin-replace": "^2.0.0"
+    "rollup-plugin-replace": "^2.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-loader": "^14.1.1",
+    "vue-style-loader": "^4.0.2",
+    "vue-template-compiler": "^2.5.16",
+    "vuetify": "^1.0.11"
   },
   "babel": {
     "presets": [
